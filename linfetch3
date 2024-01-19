@@ -17,7 +17,7 @@ echo "${USER}@"$(hostname)"
 os/distro | $NAME
 shell     | ${SHELL##*/}
 kernel    | $(uname -r)
-uptime    | $(uptime -p)
+uptime    | $(uptime)
 arch      | $(uname -m)
 res(total)| $(xdpyinfo | awk '/dimensions/{print $2}')
 cpu       | $(lscpu | grep 'Model name' | awk '{print $3" "$4" "$5" "$6" "$7" "$8" "$9" "$10" "$11" "$12}')
