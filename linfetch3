@@ -1,5 +1,24 @@
-#!/bin/bash
+#!/bin/env bash
 
 # I don't have anything here yet lmao
 
-echo "Testing commit"
+. /etc/os-release
+#pick your own file
+
+echo "    _                   __     ";
+echo "   (_)___  ____ ___  __/ /____ ";
+echo "  / / __ \/ __ \`/ / / / __/ _ \ ";
+echo " / / / / / /_/ / /_/ / /_/  __/";
+echo "/_/_/ /_/\__, /\__, /\__/\___/ ";
+echo "        /____//____/ SUITE     ";
+
+echo "${USER}@"$(hostname)"
+---
+os/distro | $NAME
+shell     | ${SHELL##*/}
+kernel    | $(uname -r)
+uptime    | $(uptime -p)
+arch      | $(uname -m)
+res(total)| $(xdpyinfo | awk '/dimensions/{print $2}')
+cpu       | $(lscpu | grep 'Model name' | awk '{print $3" "$4" "$5" "$6" "$7" "$8" "$9" "$10" "$11" "$12}')
+memory    | $(free -h | awk '/^Mem/ {print $3 "/" $2}')"
