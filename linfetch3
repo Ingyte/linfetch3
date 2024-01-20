@@ -1,9 +1,6 @@
 #!/bin/bash
 
-# I don't have anything here yet lmao
-disk_info=$(df -h | awk 'NR==2 {print $3"/"$2}')
 . /etc/os-release
-#pick your own file
 
 echo "    _                   __     ";
 echo "   (_)___  ____ ___  __/ /____ ";
@@ -22,4 +19,4 @@ arch      | $(uname -m)
 res(total)| $(xdpyinfo | awk '/dimensions/{print $2}')
 cpu       | $(lscpu | grep 'Model name' | awk '{print $3" "$4" "$5" "$6" "$7" "$8" "$9" "$10" "$11" "$12}')
 memory    | $(free -h | awk '/^Mem/ {print $3 "/" $2}')
-disk      | $disk_info"
+disk      | "$(df -h | awk 'NR==2 {print $3"/"$2}')""
